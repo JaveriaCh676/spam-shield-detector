@@ -207,7 +207,7 @@ with st.sidebar:
     <div style="text-align: center; padding: 1rem;">
         <h1 style="font-size: 2.5rem;">🛡️</h1>
         <h2 style="color: #ffffff; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb4d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Spam Shield Pro</h2>
-<p style="color: #fdbb4d; opacity: 0.9;">AI-Powered Email Protection</p>
+        <p style="color: #fdbb4d; opacity: 0.9;">AI-Powered Email Protection</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -272,10 +272,10 @@ if page == "🎯 Smart Detector":
         st.markdown("### ✍️ Email Content")
         st.markdown("Paste your email below for instant analysis")
         
-        # Input methods
+        # Input methods (Random Example removed)
         input_mode = st.radio(
             "",
-            ["📝 Type/Paste Manually", "📋 Use Template", "🎲 Random Example"],
+            ["📝 Type/Paste Manually", "📋 Use Template"],
             horizontal=True
         )
         
@@ -373,26 +373,6 @@ Thank you for shopping with us!"""
             
             email_text = templates[template]
             st.text_area("Preview:", email_text, height=250, disabled=True)
-        
-        else:  # Random example
-            col_a, col_b, col_c = st.columns([1, 2, 1])
-            with col_b:
-                if st.button("🎲 Generate Random Email", use_container_width=True):
-                    examples = [
-                        ("spam", "WINNER! You've been selected for $10,000 cash prize! Click here: http://fake-link.com"),
-                        ("spam", "FREE VIAGRA! Limited stock! Get 90% off today only!"),
-                        ("spam", "URGENT: Your PayPal account has been limited. Verify now!"),
-                        ("ham", "Subject: Team Meeting at 3 PM\n\nHi team, let's meet in conference room A."),
-                        ("ham", "Your order #12345 has been shipped. Tracking ID: 1Z999AA"),
-                        ("spam", "CONGRATULATIONS! You are our lucky winner of the year!"),
-                        ("ham", "Please review the attached document before EOD Friday."),
-                        ("spam", "HOT SINGLES in your area want to meet you!"),
-                        ("ham", "Your attendance is requested for the annual company meeting.")
-                    ]
-                    rand_type, rand_email = random.choice(examples)
-                    email_text = rand_email
-                    st.success(f"✨ Random {rand_type.upper()} email generated!")
-                    st.text_area("Generated email:", email_text, height=200, disabled=True)
         
         # Analyze button
         st.markdown("<br>", unsafe_allow_html=True)
